@@ -1,0 +1,111 @@
+.sheet__scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(3, 4, 8, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: fade var(--t-mid) var(--ease-out) both;
+}
+
+.sheet {
+  position: fixed;
+  z-index: 91;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(720px, calc(100vw - 40px));
+  max-height: min(84vh, 900px);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--bg-raise), rgba(16, 18, 24, 0.92));
+  border: 1px solid var(--stroke-2);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: sheetIn 420ms var(--ease-spring) both;
+}
+
+@keyframes sheetIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.sheet__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px 16px;
+  border-bottom: 1px solid var(--stroke-1);
+}
+
+.sheet__title {
+  font-size: 21px;
+  font-weight: 640;
+}
+
+.sheet__sub {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  margin-top: 4px;
+}
+
+.sheet__body {
+  padding: 22px 24px 26px;
+  overflow-y: auto;
+}
+
+.sheet__close {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  border: 1px solid var(--stroke-1);
+  color: var(--ink-2);
+  transition:
+    background var(--t-fast) var(--ease-out),
+    color var(--t-fast) var(--ease-out),
+    transform var(--t-fast) var(--ease-spring);
+}
+
+.sheet__close:hover {
+  background: var(--surface-3);
+  color: var(--ink-0);
+}
+
+.sheet__close:active {
+  transform: scale(0.9);
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    top: auto;
+    bottom: 0;
+    width: 100vw;
+    max-height: 88vh;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    transform: translate(-50%, 0);
+    animation: sheetUp 380ms var(--ease-out) both;
+  }
+
+  @keyframes sheetUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 14%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+}

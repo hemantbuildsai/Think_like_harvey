@@ -1,0 +1,55 @@
+.bar {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.bar__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bar__label {
+  font-size: 13.5px;
+  font-weight: 550;
+  color: var(--ink-1);
+}
+
+.bar__val {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.bar__track {
+  height: 7px;
+  border-radius: 99px;
+  background: var(--stroke-1);
+  overflow: hidden;
+}
+
+.bar__fill {
+  height: 100%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35), currentColor);
+  transition: width 800ms var(--ease-out);
+}
+
+.ring {
+  transform: rotate(-90deg);
+}
+
+.ring__track {
+  fill: none;
+  stroke: var(--stroke-1);
+}
+
+.ring__value {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 700ms var(--ease-out);
+}

@@ -1,0 +1,48 @@
+.dial {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+
+.dial__svg {
+  transform: rotate(-90deg);
+  overflow: visible;
+}
+
+.dial__track {
+  fill: none;
+  stroke: var(--stroke-1);
+}
+
+.dial__value {
+  fill: none;
+  stroke-linecap: round;
+  transition:
+    stroke-dashoffset 900ms var(--ease-out),
+    stroke 600ms var(--ease-out);
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.dial__center {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 2px;
+}
+
+.dial__num {
+  font-family: var(--font-display);
+  font-weight: 660;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.dial__grade {
+  font-size: 11px;
+  font-weight: 620;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
